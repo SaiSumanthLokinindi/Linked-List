@@ -1,73 +1,73 @@
-class Node{
-    constructor(data){
+class Node {
+    constructor(data) {
         this.data = data;
         this.next = null;
     }
 }
 
-class LinkedList{
-    constructor(){
+class LinkedList {
+    constructor() {
         this.head = null;
-        this.size=0;
+        this.size = 0;
     }
 
-    isEmpty(){
+    isEmpty() {
         return this.head === null;
     }
 
-    addAtHead(data){
+    addAtHead(data) {
         let node = new Node(data);
-        if(this.isEmpty()){
+        if (this.isEmpty()) {
             this.head = node;
             this.size++;
             return this.head;
         }
-        else{
-            node.next=this.head;
+        else {
+            node.next = this.head;
             this.head = node;
             this.size++;
             return this.head;
         }
     }
 
-    addAtTail(data){
+    addAtTail(data) {
         let node = new Node(data);
-        if(this.isEmpty()){
+        if (this.isEmpty()) {
             this.head = node;
             this.size++;
             return this.head;
         }
-        else{
+        else {
             let temp = this.head;
-            while(temp.next){
-                temp=temp.next;
+            while (temp.next) {
+                temp = temp.next;
             }
-            temp.next=node;
+            temp.next = node;
             this.size++;
             return this.head;
         }
     }
 
-    addInBetween(data,pos){
+    addInBetween(data, pos) {
         let node = new Node(data);
-        if(this.isEmpty()){
+        if (this.isEmpty()) {
             this.head = node;
             this.size++;
             return this.head;
         }
-        else{
-            if(pos === 1){
+        else {
+            if (pos === 1) {
                 this.addAtHead(data);
             }
-            else{
+            else {
                 let temp = this.head;
                 let i = 1;
-                while(i!=pos-1){
-                    temp=temp.next;
+                while (i != pos - 1) {
+                    temp = temp.next;
                     i++;
                 }
                 let curr = temp;
-                temp= temp.next;
+                temp = temp.next;
                 curr.next = node
                 node.next = temp;
                 this.size++;
@@ -76,17 +76,17 @@ class LinkedList{
         }
     }
 
-    printLinkedList(){
+    printLinkedList() {
         let res = [];
-        if(this.isEmpty()){
+        if (this.isEmpty()) {
             console.log("Linked List is empty");
             return;
         }
-        else{
+        else {
             let temp = this.head;
-            while(temp){
+            while (temp) {
                 res.push(temp.data);
-                temp=temp.next;
+                temp = temp.next;
             }
         }
         res.push('NULL');
@@ -95,15 +95,15 @@ class LinkedList{
         console.log("\n-------------------\n");
     }
 
-    deleteAtHead(){
-        if(this.isEmpty()){
+    deleteAtHead() {
+        if (this.isEmpty()) {
             console.log("Linked List is empty");
             return;
         }
-        else{
+        else {
             let temp = this.head;
             let data = temp.data;
-            temp=temp.next;
+            temp = temp.next;
             this.head.next = null;
             this.head = temp;
             this.size--;
@@ -111,42 +111,42 @@ class LinkedList{
         }
     }
 
-    deleteAtTail(){
-        if(this.isEmpty()){
+    deleteAtTail() {
+        if (this.isEmpty()) {
             console.log("Linked List is empty");
             return;
         }
-        else{
+        else {
             let temp = this.head;
-            if(temp.next === null){
+            if (temp.next === null) {
                 this.head = null;
             }
-            else{
+            else {
                 let curr = null;
-                while(temp.next){
+                while (temp.next) {
                     curr = temp;
                     temp = temp.next;
                 }
-                curr.next=null;
+                curr.next = null;
             }
             this.size--;
             return temp.data;
         }
     }
 
-    deleteInBetween(pos){
-        if(this.isEmpty()){
+    deleteInBetween(pos) {
+        if (this.isEmpty()) {
             console.log("Linked List is empty");
             return;
         }
-        else{
-            if(pos === 1){
+        else {
+            if (pos === 1) {
                 return this.deleteAtHead();
             }
             let i = 0;
             let temp = this.head;
             let curr = null;
-            while(i!==pos-1){
+            while (i !== pos - 1) {
                 curr = temp;
                 temp = temp.next;
                 i++;
@@ -159,4 +159,4 @@ class LinkedList{
     }
 }
 
-module.exports = LinkedList;
+module.exports = { Node, LinkedList };
