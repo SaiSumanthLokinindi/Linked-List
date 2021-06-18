@@ -18,7 +18,7 @@ const reverseLinkedList = (head) => {
         }
         curr = head;
     }
-    return head
+    return temp;
 }
 
 module.exports = reverseLinkedList;
