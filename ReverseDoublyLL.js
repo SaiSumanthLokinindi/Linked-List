@@ -23,16 +23,4 @@ const reverseDLL = (head) => {
     return temp;
 }
 
-const DLL = new DoubleLinkedList();
-
-DLL.addAtTail(1);
-DLL.addAtTail(2);
-DLL.addAtTail(3);
-DLL.addAtTail(4);
-DLL.addAtTail(5);
-
-DLL.printLinkedList();
-
-DLL.head = reverseDLL(DLL.head);
-
-DLL.printLinkedList();
+module.exports = reverseDLL;
